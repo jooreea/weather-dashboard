@@ -1,0 +1,84 @@
+ body {
+    background-color: #87ceeb;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+header {
+    text-align: center;
+    border: solid;
+    padding: 50px;
+    margin: -7px;
+    background-color: cornflowerblue;
+    border-color: white;
+    color: white;
+}
+
+main {
+    display: flex;
+    margin-top: 4px;
+    margin-left: -7px;
+}
+
+#search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: cadetblue;
+    padding: 25px;
+    border: solid;
+}
+
+button {
+    width: 153px;
+    margin-top: 2px;
+}
+
+#fav-btns {
+    display: flex;
+    flex-direction: column;
+}
+
+#weather {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+#current {
+    margin-bottom: -3px;
+    margin-top: -30px;
+    border: solid;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-left: -53px;
+}
+
+#forecast {
+    display: flex;
+    border: solid;
+    padding-left: 20px;
+    margin-left: -53px
+} 
+
+.inline-display {
+    display: inline;
+}
+
+.current-icon-style {
+    width: 3%; 
+    height: auto; 
+    position: relative; 
+    top: 10px; 
+    left: 5px
+}
+
+.daily-icon-style {
+    width: 15%; 
+    height: auto; 
+    position: relative; 
+    top: 10px; 
+    left: 5px
+}
