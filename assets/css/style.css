@@ -19,6 +19,7 @@ main {
     display: flex;
     margin-top: 4px;
     margin-left: -7px;
+    justify-content: center;
 }
 
 #search-bar {
@@ -26,7 +27,7 @@ main {
     flex-direction: column;
     align-items: center;
     background-color: cadetblue;
-    padding: 25px;
+    padding: 50px;
     border: solid;
 }
 
