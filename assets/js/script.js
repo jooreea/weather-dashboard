@@ -4,9 +4,9 @@ var notFoundText = document.querySelector("#not-found-text");
 var favoriteBtn = document.querySelector("#fav-btns");
 
 var currentContainer = document.querySelector("#current");
-currentContainer.setAttribute("style", "display:none")
+// currentContainer.setAttribute("style", "display:none")
 var forecastContainer = document.querySelector("#forecast");
-forecastContainer.setAttribute("style", "display:none")
+// forecastContainer.setAttribute("style", "display:none")
 
 const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
 const weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -33,6 +33,8 @@ function removeAllChildNodes(parent) {
     }
 }
 
+handleCitySearch("refrsh");
+
 function handleCitySearch(type, event) {
     if (type == "inpt") { 
         var searchCity = cityInputEl.value;
@@ -41,7 +43,15 @@ function handleCitySearch(type, event) {
         if (element.matches("button") === true) {
             var searchCity = element.textContent;
         }
-    };
+    } else if (type == "refrsh") {
+        var lastCity = JSON.parse(localStorage.getItem("cityName"));
+        console.log(lastCity);
+        if (lastCity == null) {
+            return; 
+        } else {
+            var searchCity = lastCity;
+        }
+    }
 
     var requestGeocodeUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&APPID=c84153fa02f99cc73cd6303492bd0b19';
 
@@ -85,7 +95,9 @@ function handleCitySearch(type, event) {
     })
     .then(function (data) {
         console.log(data);
+
         removeAllChildNodes(currentContainer);
+        
         //current
         var cityName = document.createElement("h2");
         cityName.textContent = searchCity; 
@@ -142,7 +154,7 @@ function handleCitySearch(type, event) {
         currentContainer.appendChild(currentUviLabel);
         currentContainer.appendChild(currentUvi);
 
-        currentContainer.setAttribute("style", "display:block");
+        currentContainer.setAttribute("style", "margin-bottom: -3px;margin-top: -30px;border: solid;padding-left: 20px;padding-bottom: 20px;margin-left: -53px;background-color: darksalmon;");
 
         removeAllChildNodes(forecastContainer);
 
@@ -179,7 +191,7 @@ function handleCitySearch(type, event) {
 
             forecastContainer.appendChild(dailyContainer);
 
-            forecastContainer.setAttribute("style", "display:flex");
+            forecastContainer.setAttribute("style", "display: flex;border: solid;padding-left: 20px;margin-left: -53px;background-color: darkseagreen;");
         }
     });
 }
