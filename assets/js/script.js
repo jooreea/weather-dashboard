@@ -4,7 +4,9 @@ var notFoundText = document.querySelector("#not-found-text");
 var favoriteBtn = document.querySelector("#fav-btns");
 
 var currentContainer = document.querySelector("#current");
+currentContainer.setAttribute("style", "display:none")
 var forecastContainer = document.querySelector("#forecast");
+forecastContainer.setAttribute("style", "display:none")
 
 const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
 const weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -115,20 +117,20 @@ function handleCitySearch(type, event) {
         var uvi = parseFloat(data.current.uvi);
         currentUvi.textContent = uvi;
         if (uvi < 3.0) {
-            currentUvi.setAttribute("style", "background-color:green;padding:3px 10px 3px 10px;border-radius:25%;")
-            // $(currentUvi).addClass("uvi-green" );
+            // currentUvi.setAttribute("style", "background-color:green;padding:3px 10px 3px 10px;border-radius:25%;")
+            currentUvi.setAttribute("class", "uvi-green" );
         } else if (uvi < 6.0) {
-            currentUvi.setAttribute("style", "background-color:gold;padding:3px 10px 3px 10px;border-radius:25%;")
-            // $(currentUvi).addClass("uvi-gold");
+            // currentUvi.setAttribute("style", "background-color:gold;padding:3px 10px 3px 10px;border-radius:25%;")
+            currentUvi.setAttribute("class", "uvi-gold");
         } else if (uvi < 8.0) {
-            currentUvi.setAttribute("style", "background-color:darkorange;padding:3px 10px 3px 10px;border-radius:25%;")
-            // $(currentUvi).addClass("uvi-orange");
+            // currentUvi.setAttribute("style", "background-color:darkorange;padding:3px 10px 3px 10px;border-radius:25%;")
+            currentUvi.setAttribute("class", "uvi-orange");
         } else if (uvi < 11.0) {
-            currentUvi.setAttribute("style", "background-color:red;padding:3px 10px 3px 10px;border-radius:25%;")
-            // $(currentUvi).addClass("uvi-red");
+            // currentUvi.setAttribute("style", "background-color:red;padding:3px 10px 3px 10px;border-radius:25%;")
+            currentUvi.setAttribute("class", "uvi-red");
         } else if (uvi >= 11.0) {
-            currentUvi.setAttribute("style", "background-color:hotpink;padding:3px 10px 3px 10px;border-radius:25%;")
-            // $(currentUvi).addClass("uvi-pink");
+            // currentUvi.setAttribute("style", "background-color:hotpink;padding:3px 10px 3px 10px;border-radius:25%;")
+            currentUvi.setAttribute("class", "uvi-pink");
         };
 
         currentContainer.appendChild(cityName);
@@ -139,6 +141,8 @@ function handleCitySearch(type, event) {
         currentContainer.appendChild(currentHumidity);
         currentContainer.appendChild(currentUviLabel);
         currentContainer.appendChild(currentUvi);
+
+        currentContainer.setAttribute("style", "display:block");
 
         removeAllChildNodes(forecastContainer);
 
@@ -174,6 +178,8 @@ function handleCitySearch(type, event) {
             dailyContainer.appendChild(dailyHumidity);
 
             forecastContainer.appendChild(dailyContainer);
+
+            forecastContainer.setAttribute("style", "display:flex");
         }
     });
 }
