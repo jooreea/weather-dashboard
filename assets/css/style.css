@@ -48,24 +48,6 @@ button {
     margin-top: 30px;
 }
 
-/*#current {
-    margin-bottom: -3px;
-    margin-top: -30px;
-    border: solid;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    margin-left: -53px;
-    background-color: darksalmon;
-}
-
-#forecast {
-    display: flex;
-    border: solid;
-    padding-left: 20px;
-    margin-left: -53px;
-    background-color: darkseagreen;
-} */
-
 .inline-display {
     display: inline;
 }
