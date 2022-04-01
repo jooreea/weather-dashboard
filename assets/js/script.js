@@ -43,7 +43,6 @@ function handleCitySearch(type, event) {
         }
     } else if (type == "refrsh") {
         var lastCity = JSON.parse(localStorage.getItem("cityName"));
-        console.log(lastCity);
         if (lastCity == null) {
             return; 
         } else {
@@ -92,8 +91,6 @@ function handleCitySearch(type, event) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
-
         removeAllChildNodes(currentContainer);
         
         //current
